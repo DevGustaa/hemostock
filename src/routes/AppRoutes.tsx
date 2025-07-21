@@ -1,15 +1,15 @@
 import { JSX } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Home from "../pages/Home";
+import Test from "../pages/test";
 
 const AppRoutes = (): JSX.Element => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/test" element={<Test />} />
+    </Routes>
   );
 };
 

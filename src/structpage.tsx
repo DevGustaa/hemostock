@@ -3,6 +3,7 @@ import { JSX } from "react";
 import AppRoutes from "./routes/AppRoutes";
 import { Bell, FunnelX, Package2, UserPlus } from "lucide-react";
 import Header from "./components/Header";
+import SideBar from "./components/Sidebar";
 
 const StructPage = (): JSX.Element => {
   return (
@@ -10,7 +11,10 @@ const StructPage = (): JSX.Element => {
       sx={{ display: "flex", boxSizing: "border-box", flexDirection: "column" }}
     >
       <Header />
-      <AppRoutes />
+      <Box display={"flex"}>
+        <SideBar />
+        <AppRoutes />
+      </Box>
     </Box>
   );
 };
