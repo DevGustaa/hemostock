@@ -22,13 +22,13 @@ const SideBar = (): JSX.Element => {
     <Box
       sx={{
         boxSizing: "border-box",
-        width: "250px",
+        minWidth: "250px",
         paddingLeft: "40px",
         marginTop: "36px",
       }}
     >
       <Typography paddingBottom={"16px"}>HemoStock</Typography>
-      <ButtonSideBar text="Home" icon={<Home />} onClick={goHome} />
+      <ButtonSideBar text="Home" icon={<Home />} onClick={goHome} rota="/" />
       <ButtonSideBar
         text="Saída de material"
         icon={<ArrowLeft />}
