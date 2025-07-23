@@ -1,7 +1,12 @@
 import { InputAdornment, TextField, Typography } from "@mui/material";
 import { Search } from "lucide-react";
 
-const TextFieldSearch = () => {
+type TextFieldSearchProps = {
+  search: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const TextFieldSearch = ({ search, onChange }: TextFieldSearchProps) => {
   return (
     <>
       <Typography
@@ -12,7 +17,9 @@ const TextFieldSearch = () => {
       <TextField
         size="small"
         type="text"
+        value={search}
         placeholder="Buscar material por nome"
+        onChange={onChange}
         slotProps={{
           input: {
             startAdornment: (

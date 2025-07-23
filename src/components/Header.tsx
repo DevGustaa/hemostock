@@ -1,12 +1,8 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Bell, Package2 } from "lucide-react";
+import UserAvatar from "./userAvatar";
 
 const Header = () => {
-  function stringAvatar(name: string) {
-    return {
-      children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-    };
-  }
   return (
     <Box
       sx={{
@@ -40,7 +36,7 @@ const Header = () => {
         >
           <Bell size={"20px"} />
         </Box>
-        <Avatar {...stringAvatar("Gustavo Albuquerque")} />
+        <UserAvatar />
       </Box>
     </Box>
   );
