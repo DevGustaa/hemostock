@@ -1,14 +1,22 @@
 import { JSX } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Home from "../pages/Home/Home";
-import Test from "../pages/test";
+import LoginPage from "../pages/Login/LoginPage";
+import StructPage from "../structpage";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRoutes = (): JSX.Element => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/test" element={<Test />} />
+      <Route path="/" element={<LoginPage />} />
+      <Route
+        path="/*"
+        element={
+          <PrivateRoute>
+            <StructPage />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 };

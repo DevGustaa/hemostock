@@ -1,8 +1,11 @@
-import { Box, Typography } from "@mui/material";
-import { Bell, Package2 } from "lucide-react";
+import { Box, Button, Typography } from "@mui/material";
+import { Bell, DoorOpen, Package2 } from "lucide-react";
 import UserAvatar from "./userAvatar";
+import { useAuth } from "../context/AuthProvider";
+import { useUserProvider } from "../context/UsuarioListProvider";
 
 const Header = () => {
+  const { logout } = useAuth();
   return (
     <Box
       sx={{
@@ -12,7 +15,7 @@ const Header = () => {
         alignItems: "center",
         paddingInline: "40px",
         borderBottom: "1px solid #E5E8EB",
-        height: "8%",
+        height: "80px",
         paddingBlock: "12px",
       }}
     >
@@ -23,8 +26,11 @@ const Header = () => {
         </Typography>
       </Box>
       <Box sx={{ display: "flex", alignItems: "center", gap: "32px" }}>
-        <Box
+        <UserAvatar />
+        <Button
+          onClick={logout}
           sx={{
+            color: "black",
             width: "40px",
             height: "40px",
             backgroundColor: "#d1d6dfff",
@@ -34,9 +40,8 @@ const Header = () => {
             borderRadius: "8px",
           }}
         >
-          <Bell size={"20px"} />
-        </Box>
-        <UserAvatar />
+          <DoorOpen size={"20px"} />
+        </Button>
       </Box>
     </Box>
   );

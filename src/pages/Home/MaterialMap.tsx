@@ -1,20 +1,21 @@
 import { Box } from "@mui/material";
-import ListTextStruct from "./ListStruct";
-import { useEffect, useState } from "react";
+import ListTextStruct from "../../components/ListStruct";
 
 type MaterialMapProps = {
-  name: string;
-  cod: number;
-  stats: boolean;
-  quant: number;
+  codigo_sistema: number;
+  codigo_material: number;
+  nome: string;
+  quantidade: string;
+  status: string;
+  id: number;
 };
 
-const MaterialMap = ({ name, cod, stats, quant }: MaterialMapProps) => {
-  const [status, setStatus] = useState("");
-  useEffect(() => {
-    setStatus(stats ? "Possui" : "Falta");
-  }, [stats]);
-
+const MaterialMap = ({
+  nome,
+  codigo_sistema,
+  status,
+  quantidade,
+}: MaterialMapProps) => {
   return (
     <Box
       sx={{
@@ -27,12 +28,12 @@ const MaterialMap = ({ name, cod, stats, quant }: MaterialMapProps) => {
         borderBottom: "1px solid #CFDEE8",
       }}
     >
-      <ListTextStruct text={name} />
-      <ListTextStruct text={cod} isNumber />
+      <ListTextStruct text={nome} tooltip />
+      <ListTextStruct text={codigo_sistema} isNumber />
       <Box sx={{ width: "25%", display: "flex", justifyContent: "center" }}>
         <Box
           sx={{
-            backgroundColor: stats ? "#ADFFD9" : "#FFADAE",
+            backgroundColor: status ? "#ADFFD9" : "#FFADAE",
             width: "140px",
             height: "32px",
             display: "flex",
@@ -40,10 +41,14 @@ const MaterialMap = ({ name, cod, stats, quant }: MaterialMapProps) => {
             borderRadius: "8px",
           }}
         >
-          <ListTextStruct text={status} isDecoration isBold />
+          <ListTextStruct
+            text={status ? "Possui" : "Falta"}
+            isDecoration
+            isBold
+          />
         </Box>
       </Box>
-      <ListTextStruct text={quant + " unid"} isNumber />
+      <ListTextStruct text={quantidade + " unid"} isNumber />
     </Box>
   );
 };
