@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { JSX } from "react";
+import { JSX, useCallback, useEffect, useState } from "react";
 
 import Header from "./components/Header";
 import SideBar from "./components/Sidebar";
@@ -8,8 +8,19 @@ import HomePage from "./pages/Home/HomePage";
 import PedidoPage from "./pages/Pedido/PedidoPage";
 import ConfigPage from "./pages/Configurações/ConfigPage";
 import AjudaPage from "./pages/Ajuda/AjudaPage";
+import { useResponsive } from "./hooks/responsive";
 
 const StructPage = (): JSX.Element => {
+  const { isTablet } = useResponsive();
+  const [sidebarState, setSidebarState] = useState(true);
+
+  useEffect(() => {
+    setSidebarState(isTablet ? true : false);
+  }, [isTablet]);
+
+  const handleStateSidebar = useCallback(() => {
+    setSidebarState((p) => !p);
+  }, []);
   return (
     <Box
       sx={{
@@ -19,9 +30,18 @@ const StructPage = (): JSX.Element => {
         height: "100vh",
       }}
     >
-      <Header />
+      <Header onClick={handleStateSidebar} />
       <Box sx={{ display: "flex", flex: "1" }}>
-        <SideBar />
+        <Box
+          sx={{
+            height: "100%",
+            display: sidebarState ? "none" : "flex",
+            position: isTablet ? "fixed" : "relative",
+            zIndex: 1,
+          }}
+        >
+          <SideBar />
+        </Box>
         <Box
           sx={{
             display: "flex",

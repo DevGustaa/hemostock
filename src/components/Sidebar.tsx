@@ -33,7 +33,9 @@ const SideBar = (): JSX.Element => {
         boxSizing: "border-box",
         minWidth: "250px",
         paddingLeft: "40px",
-        marginTop: "36px",
+        paddingTop: "36px",
+        backgroundColor: "#fcfcfcff",
+        height: "100%",
       }}
     >
       <Typography paddingBottom={"16px"}>HemoStock</Typography>

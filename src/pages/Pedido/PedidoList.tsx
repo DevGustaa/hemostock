@@ -16,12 +16,13 @@ const PedidoList = ({ onChange, materialFiltred }: PedidoListProps) => {
     <Box
       sx={{
         width: "100%",
+        height: "100%",
         border: "1px solid #1e6ea3ff",
         borderRadius: "12px",
         overflow: "auto",
       }}
     >
-      <Box sx={{ minWidth: "300px" }}>
+      <Box sx={{ minHeight: "300px", minWidth: "600px" }}>
         <Box
           sx={{
             display: "flex",

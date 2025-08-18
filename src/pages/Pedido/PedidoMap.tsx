@@ -43,15 +43,16 @@ const PedidoMap = ({
   return (
     <Box
       sx={{
-        minWidth: "1000px",
         display: "flex",
-        height: "46px",
-        alignItems: "center",
+        boxSizing: "border-box",
         justifyContent: "center",
-        borderTop: "1px solid #CFDEE8",
+        alignItems: "center",
+        height: "46px",
+        paddingInline: "5px",
+        borderBottom: "1px solid #CFDEE8",
       }}
     >
-      <ListTextStruct text={material_name} />
+      <ListTextStruct text={material_name} tooltip />
       <ListTextStruct text={cod_almox} isNumber />
 
       <Box

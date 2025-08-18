@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 
 type Breakpoint = 'mobile' | 'tablet' | 'desktop' | 'largeDesktop';
 
-const getBreakpoint = (width: number): Breakpoint => {
-  if (width < 640) return 'mobile';            // < 640px
-  if (width < 1024) return 'tablet';           // 640px – 1023px
-  if (width < 1280) return 'desktop';          // 1024px – 1279px
-  return 'largeDesktop';                       // >= 1280px
+const getBreakpoint = (width: number): Breakpoint => {           
+  if (width < 1024) return 'tablet';           
+  if (width < 1280) return 'desktop';          
+  return 'largeDesktop';                      
 };
 
 export const useResponsive = () => {
@@ -23,7 +22,6 @@ export const useResponsive = () => {
 
   return {
     breakpoint,
-    isMobile: breakpoint === 'mobile',
     isTablet: breakpoint === 'tablet',
     isDesktop: breakpoint === 'desktop' || breakpoint === 'largeDesktop',
   };

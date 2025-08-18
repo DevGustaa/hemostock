@@ -11,7 +11,7 @@ export function useUserProvider() {
         .then((data) => {
             if (JSON.stringify(data) !== JSON.stringify(prevUserRef.current)) {
                 setUsers(data);
-                prevUserRef.current= data
+                prevUserRef.current = data
             }
         })
         .catch((err) => console.error("Erro ao buscar materiais", err))

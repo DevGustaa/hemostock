@@ -69,12 +69,19 @@ const PedidoPage = () => {
       <Typography fontSize={"24px"} fontWeight={"bold"} paddingBottom={"16px"}>
         Pedido
       </Typography>
-
-      <PedidoList
-        onChange={handlePedidoChange}
-        materialFiltred={materialsFiltred}
-      />
-
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <PedidoList
+          onChange={handlePedidoChange}
+          materialFiltred={materialsFiltred}
+        />
+      </Box>
       {lenghtFilter > 0 ? (
         <Box
           sx={{
